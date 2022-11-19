@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <style>
+    td {
+        padding: 2px 10px;
+    }
+
+    li {
+        list-style: none;
+        padding: 8px 20px;
+    }
+
+    li:hover {
+        color: rgb(52, 52, 52);
+        background: rgb(163, 163, 163);
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+    }
+    form{
+        display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+             min-height: 70vh;
+    }
+    .submit{
+        margin-top: 10px;
+    }
+    .input{
+        width: 150px;
+    }
+    </style>
+</head>
+
+<body>
+        <form action="../controller/C_NhanVien.php?add" method="POST">
+        <div><div>ID</div><input class="input" type="text" name="id" value=""></div>
+        <div><div>Tên nhân viên</div><input class="input" type="text" name="hoten" value=""></div>
+        <div><div>Địa chỉ </div><input class="input" type="text" name="diachi" value=""></div>
+        <div><div>Phòng ban </div><select class="input" name="idphongban">
+        <?php
+            foreach($phongbans as $phongban)
+                echo "<option value=".$phongban->idpb.">".$phongban->tenpb."</option>";
+        ?>
+        </select></div>
+        <input class="submit" type="submit" value="Thêm">
+        </form>
+</body>
+
+</html>

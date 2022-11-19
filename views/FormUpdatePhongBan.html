@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <style>
+    td {
+        padding: 2px 10px;
+    }
+
+    li {
+        list-style: none;
+        padding: 8px 20px;
+    }
+
+    li:hover {
+        color: rgb(52, 52, 52);
+        background: rgb(163, 163, 163);
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+    }
+    form{
+        display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+             min-height: 70vh;
+    }
+    .submit{
+        margin-top: 10px;
+    }
+    .input{
+        width: 150px;
+    }
+    </style>
+</head>
+
+<body>
+    
+        <form action="../controller/C_PhongBan.php?update" method="POST">
+        <div>
+            <div>Mã phòng ban</div>
+            <?php echo "<input class='input' type='text' readOnly='true' name='idpb' value='$phongban->idpb'>"?>
+        </div>
+        <div>
+            <div>Tên phòng ban</div>
+            <?php echo "<input class='input' type='text' name='tenpb' value='$phongban->tenpb'>"?>
+        </div>
+        <div>
+            <div>Mô tả</div>
+            <?php echo "<input class='input' type='text' name='mota' value='$phongban->mota'>"?>
+        </div>
+        <input class="submit" type="submit" value="Cập nhật">
+        </form>
+</body>
+
+</html>

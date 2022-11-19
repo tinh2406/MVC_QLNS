@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            td{
+                padding: 2px 10px;
+            }
+            li{
+                list-style: none;   
+                padding: 8px 20px;
+            }
+            li:hover{
+                color: rgb(52, 52, 52);
+                background: rgb(163, 163, 163);
+            }
+            a{
+                text-decoration: none;
+                color: black;
+
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" width="100%">
+        <caption>Du lieu bang nhan vien</caption>
+        <tr><th>Ma so</th><th>Ho ten</th><th>Phong ban</th><th>Dia chi</th></tr>
+        <?php
+            if($nhanviens!==null){
+                foreach($nhanviens as $nhanvien){
+                    echo "<tr><td>$nhanvien->id</td><td>$nhanvien->hoten</td><td><a href='../controller/C_NhanVien.php?id=$nhanvien->id'>$nhanvien->tenpb</a></td><td>$nhanvien->diachi</td><td><a href='../controller/C_NhanVien.php?delete&id=$nhanvien->id'>Xóa</a></td></tr>";
+                }
+            }
+        ?>
+        </table>
+    </body>
+</html>

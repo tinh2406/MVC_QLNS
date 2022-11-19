@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí nhân sự</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        body h1{
+            font-size: 64px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to QLNS</h1>
+    <?php 
+        if(session_status()===1)
+            session_start();
+    
+
+        if(isset($_SESSION['username'])){
+            echo "<h3>Hello ".$_SESSION['username']."</h3>";
+        }
+        else{
+            include_once("../views/FormLogin.html");
+        }
+    ?> 
+</body>
+</html>

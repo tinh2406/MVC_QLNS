@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            td{
+                padding: 2px 10px;
+            }
+            li{
+                list-style: none;   
+                padding: 8px 20px;
+            }
+            li:hover{
+                color: rgb(52, 52, 52);
+                background: rgb(163, 163, 163);
+            }
+            a{
+                text-decoration: none;
+                color: black;
+
+            }
+        </style>
+    </head>
+    <body>
+        <form action='../controller/C_NhanVien.php?deletes' method='post'>
+            <table border="1" width="100%">
+            <caption>Xoa nhan vien</caption>
+            <tr><th>Ma so</th><th>Ho ten</th><th>Phong ban</th><th>Dia chi</th><th></th></tr>
+        <?php
+            foreach($nhanviens as $nhanvien){
+                echo '<tr><td>'.$nhanvien->id."</td><td>".$nhanvien->hoten."</td><td><a href='../controller/C_NhanVien.php?idphongban="
+                .$nhanvien->idphongban."'>".$nhanvien->tenpb."</a></td><td>".$nhanvien->diachi."</td><td><input type='checkbox' name='select[]' value='".$nhanvien->id."'></td></tr>";
+            }
+        ?>
+        </table>
+        <button type='submit'>Xóa</button>
+        </form>
+    </body>
+</html>

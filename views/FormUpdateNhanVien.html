@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <style>
+    td {
+        padding: 2px 10px;
+    }
+
+    li {
+        list-style: none;
+        padding: 8px 20px;
+    }
+
+    li:hover {
+        color: rgb(52, 52, 52);
+        background: rgb(163, 163, 163);
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+
+    }
+    form{
+        display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+             min-height: 70vh;
+    }
+    .submit{
+        margin-top: 10px;
+    }
+    .input{
+        width: 150px;
+    }
+    </style>
+</head>
+
+<body>
+    
+        <form action="../controller/C_NhanVien.php?update" method="POST">
+        <div>
+            <div>Mã</div>
+            <?php echo "<input class='input' type='text' readOnly='true' name='id' value='$nhanvien->id'>"?>
+        </div>
+        <div>
+            <div>Tên nhân viên</div>
+            <?php echo "<input class='input' type='text' name='hoten' value='$nhanvien->hoten'>"?>
+        </div>
+        <div>
+            <div>Địa chỉ </div>
+            <?php echo "<input class='input' type='text' name='diachi' value='$nhanvien->diachi'>"?>
+        </div>
+        <div>
+            <div>Phòng ban </div>
+            <select class='input' name='idphongban'>
+            <?php
+            foreach($phongbans as $phongban)
+                if($phongban->idpb===$nhanvien->idphongban)
+                    echo "<option value=".$phongban->idpb." selected>".$phongban->tenpb."</option>";
+                else
+                    echo "<option value=".$phongban->idpb.">".$phongban->tenpb."</option>";
+            ?>
+            </select>
+        </div>
+        <input class="submit" type="submit" value="Cập nhật">
+        </form>
+</body>
+
+</html>
